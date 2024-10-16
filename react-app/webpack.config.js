@@ -36,7 +36,7 @@ module.exports = {
       name: 'ReactApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './ButtonComponent': './src/ButtonComponent',
+        './Components': './src/components/index.jsx',
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),

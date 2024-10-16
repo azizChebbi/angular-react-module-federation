@@ -8,19 +8,22 @@ const app = angular.module('app', ['ngRoute']);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
-      template: '<h1>Welcome to AngularJS</h1><react-component></react-component>',
+      template: '<h1>Welcome to AngularJS</h1><home-page></home-page>',
     })
     .otherwise({ redirectTo: '/' });
 }]);
 
-app.directive('reactComponent', function() {
+app.directive('homePage', function() {
   return {
     restrict: 'E',
     link: function(scope, element) {
-      import('ReactApp/ButtonComponent').then(ButtonModule => {
-        const ReactButton = ButtonModule.default;
-        ReactDOM.render(<ReactButton />, element[0]);
-        console.log(ButtonModule);
+      import('ReactApp/Components').then((components) => {
+        const ReactButton = components.ButtonComponent;
+        const Header = components.Header;
+        ReactDOM.render(<>
+          <Header/>
+          <ReactButton />
+        </>, element[0]);
       });
     },
   };

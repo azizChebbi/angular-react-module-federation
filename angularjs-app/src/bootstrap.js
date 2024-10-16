@@ -18,11 +18,17 @@ app.directive('homePage', function() {
     restrict: 'E',
     link: function(scope, element) {
       import('ReactApp/Components').then((components) => {
-        const ReactButton = components.ButtonComponent;
+        const NativeButton = components.ButtonComponent;
+        const CounterButton = components.CounterComponent;
         const Header = components.Header;
         ReactDOM.render(<>
           <Header/>
-          <ReactButton />
+          <NativeButton
+            content={'React button with angularjs state'}
+          />
+          <br/>
+          <br/>
+          <CounterButton />
         </>, element[0]);
       });
     },

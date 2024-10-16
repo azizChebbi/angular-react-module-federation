@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ButtonComponent = () => (
-  <button>This is a React button!</button>
+const ButtonComponent = ({content, onClick}) => (
+  <button onClick={onClick}>{content}</button>
 );
 
 export default ButtonComponent;
